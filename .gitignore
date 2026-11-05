@@ -1,0 +1,25 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Intermediate build PDF (keep KevinSikora-Resume-*.pdf)
+kevin-sikora-resume-template.pdf
+
+# Editor / OS
+.DS_Store
+*~
+*.swp
+.idea/
+.vscode/

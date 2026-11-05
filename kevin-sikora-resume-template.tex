@@ -1,0 +1,203 @@
+% ---
+% strip all extended attributes from a file
+% xattr -c /path/to/file.pdf
+% ---
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage[sfdefault]{roboto}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[none]{hyphenat} % disable automatic hyphenation // ATS related
+\usepackage[hidelinks]{hyperref} % hidden clickabble links
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+
+% ---
+% user-specific metadata
+% ---
+\usepackage[en-US]{datetime2} % sets default date style
+\DTMsetdatestyle{iso}
+\hypersetup{
+    pdfauthor={Kevin Sikora},
+    pdftitle={Kevin Sikora - Resume - \today},
+    pdfsubject={Kevin Sikora's resume for a senior software engineer position.},
+    pdfkeywords={Senior software engineer, AI development, Senior SDET, QA, Software testing, WordPress plugin development, Website development, Website maintenance, Drone pilot},
+    pdfcreator={},
+    pdfproducer={},
+    pdfnewwindow=true
+}
+
+
+% ---
+% company and position formatting
+% ---
+\newcounter{companycount}
+\newcounter{positioncount}
+
+\newcommand{\companyheader}[2]{%
+    \ifnum\value{companycount}>0
+        \par\addvspace{10pt}
+    \fi
+    \stepcounter{companycount}
+    \setcounter{positioncount}{0}
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & #2 \\
+    \end{tabular*}
+    \par\nobreak
+}
+
+\newcommand{\positionheader}[2]{%
+    \ifnum\value{positioncount}>0
+        \par\addvspace{5pt}
+    \fi
+    \stepcounter{positioncount}
+    \noindent
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \textit{#1} & #2 \\
+    \end{tabular*}
+    \par\nobreak
+}
+
+
+% ---
+% optional custom commands
+% ---
+\newcommand{\websiteslabel}{\textit{Websites:}}
+\newcommand{\githublabel}{\textit{GitHub:}}
+\newcommand{\techlabel}{\textit{Technologies:}}
+\newcommand{\italicizedlabel}[1]{\textit{#1:}} % \italicizedlabel{Some label}
+
+
+% ---
+% section heading formatting
+% ---
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{22pt}{10pt}
+
+
+% ---
+% indent all bullet points
+% ---
+\setlist[itemize]{
+    leftmargin=0.25in,
+    itemsep=0pt,
+    topsep=1pt
+}
+
+
+% ---
+\begin{document} % specific resume information gets listed below
+% ---
+
+% ---
+% Resume header
+% ---
+\begin{center}
+    {\Huge \textbf{Kevin Sikora}} \\[6pt]
+    {\small
+    \href{mailto:Kevin.Sikora@gmail.com}{Kevin.Sikora@gmail.com} \, | \,
+    (920) 857-4034 \, | \,
+    \href{https://www.linkedin.com/in/kevinsikora/}{linkedin.com/in/kevinsikora}
+    } \\[4pt]
+    {\small Senior Software Engineer}
+\end{center}
+
+
+% ---
+% Summary
+% ---
+\section*{Summary}
+
+Software engineer with experience using AI to develop and maintain web applications, RESTful API's, test automation frameworks, and reporting tools.
+
+
+% ---
+% Work Experience
+% ---
+\section*{Work Experience}
+\setcounter{companycount}{0} % used for spacing between the listed companies
+
+\companyheader{Sikora Collective}{Alameda, California}
+\positionheader{Founder / Software Engineer}{January 2024 - Present}
+\begin{itemize}
+    \item Reduced third-party development costs by using AI tools to bring website development and maintenance work in-house
+    \item Increased website traffic by 20\% over six months by using AI to analyze performance data and optimize existing content
+    \item Automated routine website updates and quality checks to reduce manual work and improve efficiency
+    \item \websiteslabel{} LiveTheDTOUR.com, WhereDoITakeMyParents.com
+    \item \githublabel{} https://github.com/sikoracollective
+    \item \techlabel{} Cursor AI, Codex, Python, MySQL, Playwright, Docker, ChatGPT, WordPress, Bash, PHP, GitHub, Google Analytics, Lightroom, Markdown
+\end{itemize}
+
+\companyheader{Anaplan}{San Francisco, California}
+\positionheader{Software Engineer / Senior SDET}{June 2017 - August 2023}
+\begin{itemize}
+    \item Managed and maintained a RESTful auditing service for the product
+    \item Built Splunk reporting dashboards that helped reduce exceptions and errors by 30\% over a six-month period
+    \item Created and maintained continuous integration (CI) pipelines using Jenkins
+    \item Wrote unit, functional, and integration tests for multiple RESTful services
+    \item \techlabel{} Java, Kotlin, Spring Boot, Kubernetes, Docker, RabbitMQ, MySQL, Selenium WebDriver, Cucumber, Jenkins, JUnit, Postman, GitHub, Splunk, Regular expressions, Markdown
+\end{itemize}
+
+\companyheader{MarkMonitor}{San Francisco, California}
+\positionheader{Senior Software Development Engineer in Test (SDET)}{February 2016 - May 2017}
+\begin{itemize}
+    \item Developed automated functional and integration tests for core application features
+    \item Improved the test automation framework to make coverage easier for the team to track
+    \item Created ELK dashboards that helped teams spot and investigate production issues faster
+    \item \techlabel{} Java, TestNG, JUnit, REST Assured, MySQL, Jenkins, Postman, GitHub, SonarQube, ELK
+\end{itemize}
+
+\newpage
+
+\companyheader{Intuit / Demandforce}{San Francisco, California}
+\positionheader{Senior SDET}{March 2012 - February 2016}
+\begin{itemize}
+    \item Managed a successful customer account migration following a company acquisition, earning a department-wide award for outstanding performance
+    \item Developed reporting dashboards for all engineering teams that helped reduce production errors by 40\% over a three-month period
+    \item \techlabel{} Java, TestNG, Selenium WebDriver, MySQL, Jenkins, Postman, GitHub, Splunk, SonarQube, Regular expressions
+\end{itemize}
+
+\companyheader{MobiTV}{Emeryville, California}
+\positionheader{Senior SDET}{September 2010 - March 2012}
+\begin{itemize}
+    \item Developed a Lua-based test automation framework for end-to-end mobile application testing
+    \item Managed daily quality checks, investigated failures, and documented issues for follow-up
+    \item \techlabel{} Java, JSP, Lua, MySQL, HTML
+\end{itemize}
+
+
+% ---
+% Certifications
+% ---
+% \section*{Certifications}
+
+% \begin{itemize}
+%     \item \begin{tabularx}{\linewidth}{@{}X r@{}}
+%         \textbf{FAA Part 107 Remote Pilot Certificate} & February 2026 \\
+%     \end{tabularx}
+%     \item \begin{tabularx}{\linewidth}{@{}X r@{}}
+%         \textbf{EASA UAS Remote Pilot Certificate} -- Drone Open Category A1+A3 & February 2026 \\
+%     \end{tabularx}
+% \end{itemize}
+
+
+% ---
+% Education
+% ---
+\section*{Education}
+
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+% \textbf{Degree or Program Name} & Graduation Year \\
+% School Name & City, State \\
+\textbf{University of Wisconsin--Madison} & Madison, Wisconsin \\
+\textit{Bachelor of Science in Computer Science} \\
+\end{tabular*}
+
+\end{document}
